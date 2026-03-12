@@ -1,0 +1,48 @@
+/* 1) Estilos globales */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.page {
+  background: #0b1220;
+  color: #e7ecf5;
+  font-family: Arial, sans-serif;
+  line-height: 1.5;
+}
+
+/* 2) Encabezado */
+.site-header {
+  background: #0f1a33;
+  padding: 16px;
+  border-bottom: 2px solid #ff3b3b; /* detalle decorativo */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+/* 3) Navegación */
+
+.nav-list {
+list-style: none;
+display: flex;
+gap: 20px;
+}
+
+.nav-item a {
+text-decoration: none;
+color: #e7ecf5;
+font-size: 14px;
+transition: color 0.2s ease;
+}
+
+.nav-item a:hover {
+color: #ff3b3b;
+}
+
+.nav-item--active a {
+color: #ff3b3b;
+font-weight: bold;
+}
