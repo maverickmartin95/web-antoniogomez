@@ -52,7 +52,17 @@ nav {
 }
 .btn-outline:hover { background: rgba(0,0,0,0.05); }
 
-
+.btn-dark {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  padding: 13px 28px;
+  border-radius: 30px;
+  background: #333;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s;
+}
 .btn-dark:hover { background: #333; }
 
 .btn-ghost {
@@ -441,6 +451,58 @@ h2 {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 0.75rem;
   color: #bbb;
+}
+
+/* ── BOTÓN FLOTANTE WHATSAPP ── */
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  background-color: transparent;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+  z-index: 999;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  border: none;
+  padding: 0;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 16px rgba(37, 211, 102, 0.5);
+}
+
+.whatsapp-float:active {
+  transform: scale(0.95);
+}
+
+.whatsapp-float svg {
+  width: 60px;
+  height: 60px;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+/* Para pantallas móviles */
+@media (max-width: 768px) {
+  nav { padding: 0 20px; }
+  .nav-logo-text { font-size: 14px; }
+  
+  .whatsapp-float {
+    width: 55px;
+    height: 55px;
+  }
+
+  .whatsapp-float svg {
+    width: 55px;
+    height: 55px;
+  }
 }
 
 /* ── RESPONSIVE ── */
