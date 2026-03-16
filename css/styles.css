@@ -45,40 +45,14 @@ nav {
   padding: 7px 16px;
   border: 2px solid rgba(0,0,0,1);
   border-radius: 20px;
-  background: #f8f7f4;
+  background: transparent;
   cursor: pointer;
   color: #333;
   transition: background 0.2s;
 }
 .btn-outline:hover { background: rgba(0,0,0,0.05); }
 
-.btn-red {
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 13px;
-  padding: 7px 16px;
-  border: none;
-  border-radius: 20px;
-  background: #C21B17;
-  cursor: pointer;
-  color: white;
-  font-weight: 500;
-  transition: background 0.2s;
-}
-.btn-red:hover { background: #a81512; }
 
-.btn-dark {
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  padding: 13px 28px;
-  border-radius: 30px;
-  background: #1a1a1a;
-  color: white;
-  border: none;
-  cursor: pointer;
-  letter-spacing: -0.01em;
-  transition: background 0.2s;
-}
 .btn-dark:hover { background: #333; }
 
 .btn-ghost {
