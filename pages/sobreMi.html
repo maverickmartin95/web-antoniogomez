@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sobre mí · Antonio Gómez · Asesor Generali</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --red: #C21B17;
+      --red-dark: #8F1411;
+      --cream: #F8F7F4;
+      --cream-dark: #F0EEE9;
+      --text: #1A1A1A;
+      --muted: #6B7280;
+      --border: rgba(0,0,0,0.08);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--cream);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 48px;
+      height: 80px;
+      background: var(--red);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-logo img {
+      height: 70px;
+      width: auto;
+      display: block;
+    }
+
+    .nav-back {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.85);
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 20px;
+      padding: 7px 18px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .nav-back:hover {
+      background: rgba(255,255,255,0.12);
+      color: white;
+    }
+
+    /* ── HERO SOBRE MÍ ── */
+    .about-hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 520px;
+      overflow: hidden;
+    }
+
+    .about-hero-content {
+      padding: 80px 72px 80px 72px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .about-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 24px;
+    }
+
+    .about-tag::before {
+      content: '';
+      width: 20px;
+      height: 1px;
+      background: var(--red);
+      display: block;
+    }
+
+    .about-hero-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(2.4rem, 4vw, 3.4rem);
+      font-weight: 400;
+      line-height: 1.12;
+      letter-spacing: -0.02em;
+      color: #111;
+      margin-bottom: 28px;
+    }
+
+    .about-hero-title em {
+      font-style: italic;
+      color: var(--red);
+    }
+
+    .about-hero-lead {
+      font-size: 1rem;
+      line-height: 1.75;
+      color: var(--muted);
+      max-width: 440px;
+      margin-bottom: 40px;
+    }
+
+    .about-hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      font-weight: 500;
+      color: white;
+      background: var(--red);
+      border: none;
+      border-radius: 30px;
+      padding: 14px 28px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+      width: fit-content;
+    }
+    .about-hero-cta:hover {
+      background: var(--red-dark);
+      transform: translateY(-1px);
+    }
+
+    .about-hero-photo {
+      position: relative;
+      background: var(--cream-dark);
+      overflow: hidden;
+    }
+
+    /* Placeholder foto elegante */
+    .photo-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      background: linear-gradient(145deg, #ede9e2 0%, #e2ddd6 100%);
+    }
+
+    .photo-placeholder-icon {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: rgba(194,27,23,0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1.5px solid rgba(194,27,23,0.15);
+    }
+
+    .photo-placeholder-text {
+      font-size: 12px;
+      color: #aaa;
+      letter-spacing: 0.05em;
+    }
+
+    /* Decorative elements */
+    .photo-deco {
+      position: absolute;
+      bottom: 32px;
+      left: 32px;
+      background: white;
+      border-radius: 14px;
+      padding: 16px 20px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .photo-deco-icon {
+      width: 36px;
+      height: 36px;
+      background: #fff5f5;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .photo-deco-label {
+      font-size: 11px;
+      color: var(--muted);
+      font-weight: 400;
+    }
+
+    .photo-deco-value {
+      font-size: 14px;
+      font-weight: 500;
+      color: #111;
+    }
+
+    /* ── DIVIDER ── */
+    .section-divider {
+      height: 1px;
+      background: var(--border);
+      margin: 0;
+    }
+
+    /* ── TRUST NUMBERS ── */
+    .numbers-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 64px 48px;
+      gap: 0;
+    }
+
+    .number-item {
+      text-align: center;
+      padding: 0 24px;
+      border-right: 1px solid var(--border);
+    }
+    .number-item:last-child { border-right: none; }
+
+    .number-value {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.4rem;
+      font-weight: 400;
+      color: var(--red);
+      letter-spacing: -0.03em;
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .number-label {
+      font-size: 12px;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      line-height: 1.5;
+    }
+
+    /* ── BIO SECTION ── */
+    .bio-section {
+      background: white;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .bio-inner {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 88px 48px;
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .bio-sidebar {
+      position: sticky;
+      top: 100px;
+    }
+
+    .bio-sidebar-tag {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 16px;
+    }
+
+    .bio-sidebar-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      font-weight: 400;
+      line-height: 1.25;
+      letter-spacing: -0.02em;
+      color: #111;
+      margin-bottom: 24px;
+    }
+
+    .bio-sidebar-quote {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--muted);
+      border-left: 2px solid var(--red);
+      padding-left: 18px;
+      margin-top: 24px;
+    }
+
+    .bio-content p {
+      font-size: 0.97rem;
+      line-height: 1.85;
+      color: #444;
+      margin-bottom: 24px;
+    }
+    .bio-content p:last-child { margin-bottom: 0; }
+
+    .bio-content strong {
+      font-weight: 500;
+      color: #222;
+    }
+
+    /* ── VALORES ── */
+    .valores-section {
+      padding: 88px 48px;
+      max-width: 980px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+
+    .section-header-tag {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 14px;
+      display: block;
+    }
+
+    .section-header-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      color: #111;
+    }
+
+    .valores-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .valor-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 36px 30px;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .valor-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.07);
+    }
+
+    .valor-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .valor-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      font-weight: 400;
+      color: #111;
+      margin-bottom: 10px;
+    }
+
+    .valor-desc {
+      font-size: 0.875rem;
+      line-height: 1.7;
+      color: var(--muted);
+    }
+
+    /* ── SEGUROS LIST ── */
+    .seguros-section {
+      background: white;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 88px 48px;
+    }
+
+    .seguros-inner {
+      max-width: 980px;
+      margin: 0 auto;
+    }
+
+    .seguros-list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 48px;
+    }
+
+    .seguro-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px 18px;
+      font-size: 0.875rem;
+      color: #333;
+      font-weight: 400;
+      transition: all 0.2s;
+    }
+    .seguro-item:hover {
+      background: #fff5f5;
+      border-color: rgba(194,27,23,0.15);
+      color: var(--red);
+    }
+
+    .seguro-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--red);
+      flex-shrink: 0;
+      opacity: 0.5;
+    }
+    .seguro-item:hover .seguro-dot { opacity: 1; }
+
+    /* ── CONTACTO FINAL ── */
+    .contact-section {
+      padding: 100px 48px;
+      text-align: center;
+      max-width: 620px;
+      margin: 0 auto;
+    }
+
+    .contact-tag {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    .contact-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      color: #111;
+      margin-bottom: 18px;
+    }
+
+    .contact-subtitle {
+      font-size: 0.97rem;
+      line-height: 1.7;
+      color: var(--muted);
+      margin-bottom: 40px;
+    }
+
+    .contact-actions {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      color: white;
+      background: var(--red);
+      border: none;
+      border-radius: 30px;
+      padding: 14px 28px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-primary:hover {
+      background: var(--red-dark);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      color: #444;
+      background: transparent;
+      border: 1px solid rgba(0,0,0,0.15);
+      border-radius: 30px;
+      padding: 14px 28px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-secondary:hover {
+      background: rgba(0,0,0,0.04);
+      border-color: rgba(0,0,0,0.25);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 28px 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-left {
+      font-size: 12px;
+      color: #bbb;
+    }
+
+    .footer-right {
+      font-size: 12px;
+      color: #bbb;
+    }
+
+    /* ── WHATSAPP FLOTANTE ── */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      width: 56px;
+      height: 56px;
+      background: transparent;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      box-shadow: 0 4px 16px rgba(37,211,102,0.3);
+      z-index: 999;
+      transition: transform 0.2s, box-shadow 0.2s;
+      padding: 0;
+    }
+    .whatsapp-float:hover {
+      transform: scale(1.08);
+      box-shadow: 0 6px 20px rgba(37,211,102,0.45);
+    }
+    .whatsapp-float svg {
+      width: 56px;
+      height: 56px;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 860px) {
+      nav { padding: 0 24px; }
+
+      .about-hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+
+      .about-hero-content {
+        padding: 56px 32px 48px;
+      }
+
+      .about-hero-photo {
+        min-height: 280px;
+      }
+
+      .numbers-strip {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 48px 32px;
+        gap: 0;
+      }
+
+      .number-item {
+        padding: 20px;
+        border-right: 1px solid var(--border);
+        border-bottom: 1px solid var(--border);
+      }
+      .number-item:nth-child(2n) { border-right: none; }
+      .number-item:nth-child(3),
+      .number-item:nth-child(4) { border-bottom: none; }
+
+      .bio-inner {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        padding: 56px 32px;
+      }
+
+      .bio-sidebar { position: static; }
+
+      .valores-section {
+        padding: 64px 32px;
+      }
+
+      .valores-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .seguros-section { padding: 64px 32px; }
+
+      .seguros-list {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .contact-section { padding: 72px 32px; }
+
+      footer {
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
+        padding: 24px 32px;
+      }
+    }
+
+    @media (max-width: 540px) {
+      .seguros-list { grid-template-columns: 1fr; }
+      .contact-actions { flex-direction: column; align-items: center; }
+    }
+
+    /* ── FADE IN ANIMATION ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .fade-up {
+      animation: fadeUp 0.65s ease both;
+    }
+    .fade-up-2 { animation-delay: 0.1s; }
+    .fade-up-3 { animation-delay: 0.2s; }
+    .fade-up-4 { animation-delay: 0.3s; }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo">
+      <img src="../src/img/LogoLeon.png" alt="Generali" />
+    </div>
+    <a href="../index.html" class="nav-back">
+      ← Inicio
+    </a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="about-hero">
+    <div class="about-hero-content">
+      <span class="about-tag fade-up">Sobre mí</span>
+      <h1 class="about-hero-title fade-up fade-up-2">
+        Soy <em>Antonio Gómez</em>,<br>tu asesor de confianza.
+      </h1>
+      <p class="about-hero-lead fade-up fade-up-3">
+        Llevo más de 5 años ayudando a familias y empresas a proteger lo que más les importa. Trabajo con Generali para ofrecerte el respaldo de una de las aseguradoras más sólidas del mundo.
+      </p>
+      <a href="https://wa.me/34692833640?text=Hola%20Antonio%2C%20me%20gustar%C3%ADa%20m%C3%A1s%20informaci%C3%B3n%20sobre%20tus%20seguros" target="_blank" class="about-hero-cta fade-up fade-up-4">
+        Habla conmigo
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+    <div class="about-hero-photo">
+      <div class="photo-placeholder">
+        <div class="photo-placeholder-icon">
+          <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+            <circle cx="18" cy="13" r="6" stroke="#C21B17" stroke-width="1.5"/>
+            <path d="M6 31c0-6.627 5.373-12 12-12s12 5.373 12 12" stroke="#C21B17" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <span class="photo-placeholder-text">Foto de Antonio</span>
+      </div>
+      <div class="photo-deco">
+        <div class="photo-deco-icon">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+            <path d="M9 15S2 10.5 2 6a5 5 0 0 1 10 0c0 4.5-3 9-3 9Z" fill="#C21B17" opacity="0.15"/>
+            <path d="M9 15S2 10.5 2 6a5 5 0 0 1 10 0c0 4.5-3 9-3 9Z" stroke="#C21B17" stroke-width="1.2"/>
+          </svg>
+        </div>
+        <div>
+          <div class="photo-deco-label">Con sede en</div>
+          <div class="photo-deco-value">Granada, España</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NÚMEROS -->
+  <div class="numbers-strip">
+    <div class="number-item">
+      <span class="number-value">+800</span>
+      <span class="number-label">Clientes<br>protegidos</span>
+    </div>
+    <div class="number-item">
+      <span class="number-value">+5</span>
+      <span class="number-label">Años de<br>experiencia</span>
+    </div>
+    <div class="number-item">
+      <span class="number-value">100%</span>
+      <span class="number-label">Satisfacción<br>del cliente</span>
+    </div>
+    <div class="number-item">
+      <span class="number-value">24h</span>
+      <span class="number-label">Atención<br>continua</span>
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <!-- BIO -->
+  <section class="bio-section">
+    <div class="bio-inner">
+      <div class="bio-sidebar">
+        <p class="bio-sidebar-tag">Mi historia</p>
+        <h2 class="bio-sidebar-title">Asesoramiento<br>con nombre propio.</h2>
+        <blockquote class="bio-sidebar-quote">
+          "No vendo pólizas. Ayudo a las personas a dormir tranquilas."
+        </blockquote>
+      </div>
+      <div class="bio-content">
+        <p>
+          Soy Antonio Gómez, asesor de seguros asociado a <strong>Generali España</strong>, una de las compañías aseguradoras con mayor solidez y trayectoria a nivel mundial. Llevo más de 5 años en este sector, y cada día me reafirmo en algo: la gente no necesita un comercial, necesita alguien que le escuche y le explique las cosas con claridad.
+        </p>
+        <p>
+          Trabajo con familias, autónomos y pequeñas empresas en toda España. Mi objetivo es simple: <strong>encontrar la cobertura que realmente encaja con tu vida</strong>, sin excesos ni lagunas. Sin letra pequeña que te sorprenda cuando más lo necesitas.
+        </p>
+        <p>
+          Empecé trabajando en Granada, pero hoy atiendo a clientes en cualquier punto del país. La tecnología me permite estar cerca aunque la distancia diga lo contrario. Una llamada, un WhatsApp o una videollamada bastan para que empieces a tomar decisiones bien informado.
+        </p>
+        <p>
+          Si estás pensando en contratar un seguro o revisar el que ya tienes, <strong>te ofrezco una consulta totalmente gratuita y sin compromiso</strong>. Mi trabajo es que tú salgas con las ideas claras, tomes la decisión que más te convenga — aunque no sea conmigo.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- VALORES -->
+  <section class="valores-section">
+    <div class="section-header">
+      <span class="section-header-tag">Mi forma de trabajar</span>
+      <h2 class="section-header-title">Lo que me diferencia</h2>
+    </div>
+    <div class="valores-grid">
+
+      <div class="valor-card">
+        <div class="valor-icon" style="background:#fff5f5;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M12 20S3 14.5 3 9a6 6 0 0 1 12 0c0 5.5-3 11-3 11Z" fill="#C21B17" opacity="0.15"/>
+            <path d="M12 20S3 14.5 3 9a6 6 0 0 1 12 0c0 5.5-3 11-3 11Z" stroke="#C21B17" stroke-width="1.5"/>
+          </svg>
+        </div>
+        <h3 class="valor-title">Asesoramiento gratuito</h3>
+        <p class="valor-desc">Mi consulta no tiene coste. Te explico las opciones disponibles y te ayudo a decidir sin ningún tipo de compromiso.</p>
+      </div>
+
+      <div class="valor-card">
+        <div class="valor-icon" style="background:#f0f6ff;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <circle cx="12" cy="8" r="4" stroke="#1a5fa8" stroke-width="1.5"/>
+            <path d="M4 20c0-4.418 3.582-8 8-8s8 3.582 8 8" stroke="#1a5fa8" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h3 class="valor-title">Trato cercano y directo</h3>
+        <p class="valor-desc">No soy un call center. Soy una persona real que coge el teléfono, responde mensajes y conoce tu situación particular.</p>
+      </div>
+
+      <div class="valor-card">
+        <div class="valor-icon" style="background:#f0faf5;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M9 12l2 2 4-4" stroke="#0e7a5a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="12" cy="12" r="9" stroke="#0e7a5a" stroke-width="1.5"/>
+          </svg>
+        </div>
+        <h3 class="valor-title">Sin letra pequeña</h3>
+        <p class="valor-desc">Me aseguro de que entiendas exactamente qué cubre tu seguro y qué no. Nada de sorpresas en el momento del siniestro.</p>
+      </div>
+
+      <div class="valor-card">
+        <div class="valor-icon" style="background:#fffbf0;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <circle cx="12" cy="12" r="9" stroke="#b07a10" stroke-width="1.5"/>
+            <path d="M12 7v5l3 3" stroke="#b07a10" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h3 class="valor-title">Respuesta en 24 horas</h3>
+        <p class="valor-desc">Me comprometo a darte respuesta el mismo día o al siguiente. Porque los seguros no esperan y tú tampoco deberías esperar.</p>
+      </div>
+
+      <div class="valor-card">
+        <div class="valor-icon" style="background:#f5f0ff;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M12 2l2.5 5 5.5.8-4 3.9.9 5.5L12 15l-4.9 2.6.9-5.5L4 8.2l5.5-.8L12 2Z" fill="#7c3aed" opacity="0.12"/>
+            <path d="M12 2l2.5 5 5.5.8-4 3.9.9 5.5L12 15l-4.9 2.6.9-5.5L4 8.2l5.5-.8L12 2Z" stroke="#7c3aed" stroke-width="1.5" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <h3 class="valor-title">Generali, respaldo mundial</h3>
+        <p class="valor-desc">Trabajo con una de las aseguradoras líderes en Europa. Eso significa solidez, solvencia y respaldo real cuando lo necesitas.</p>
+      </div>
+
+      <div class="valor-card">
+        <div class="valor-icon" style="background:#fff5f5;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9Z" stroke="#C21B17" stroke-width="1.5" stroke-linejoin="round"/>
+            <path d="M9 22V12h6v10" stroke="#C21B17" stroke-width="1.5"/>
+          </svg>
+        </div>
+        <h3 class="valor-title">Coberturas adaptadas</h3>
+        <p class="valor-desc">No hay dos personas iguales. Analizo tu situación y busco el seguro que realmente necesitas, no el más caro ni el más básico.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SEGUROS -->
+  <section class="seguros-section">
+    <div class="seguros-inner">
+      <div class="section-header">
+        <span class="section-header-tag">Lo que ofrezco</span>
+        <h2 class="section-header-title">Seguros disponibles</h2>
+      </div>
+      <div class="seguros-list">
+        <div class="seguro-item"><span class="seguro-dot"></span>Seguro de vida</div>
+        <div class="seguro-item"><span class="seguro-dot"></span>Seguro de hogar</div>
+        <div class="seguro-item"><span class="seguro-dot"></span>Seguro de decesos</div>
+        <div class="seguro-item"><span class="seguro-dot"></span>Seguro de coche</div>
+        <div class="seguro-item"><span class="seguro-dot"></span>Seguro de moto</div>
+        <div class="seguro-item"><span class="seguro-dot"></span>Seguro de salud</div>
+        <div class="seguro-item"><span class="seguro-dot"></span>Seguro de accidentes</div>
+        <div class="seguro-item"><span class="seguro-dot"></span>Seguro para empresas</div>
+        <div class="seguro-item"><span class="seguro-dot"></span>Responsabilidad civil</div>
+      </div>
+      <div style="text-align:center; margin-top:36px;">
+        <a href="segurosYprotecciones.html" class="btn-secondary">Ver todos los seguros →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <div class="contact-section">
+    <span class="contact-tag">Hablemos</span>
+    <h2 class="contact-title">¿Listo para proteger lo que más importa?</h2>
+    <p class="contact-subtitle">Escríbeme sin compromiso. Te respondo en menos de 24 horas y te oriento hacia la mejor opción para ti y tu familia.</p>
+    <div class="contact-actions">
+      <a href="https://wa.me/34692833640?text=Hola%20Antonio%2C%20quiero%20informaci%C3%B3n%20sobre%20un%20seguro." target="_blank" class="btn-primary">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <rect width="16" height="16" rx="8" fill="#25D366"/>
+          <path d="M8 3a5 5 0 0 1 4.33 7.5L13 13l-2.5-.67A5 5 0 1 1 8 3Z" fill="white" opacity="0.9"/>
+        </svg>
+        Enviar WhatsApp
+      </a>
+      <a href="../index.html" class="btn-secondary">← Volver al inicio</a>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="footer-left">Antonio Gómez · Asesor Generali · Granada, España</span>
+    <span class="footer-right">+34 692 833 640</span>
+  </footer>
+
+  <!-- WHATSAPP FLOTANTE -->
+  <button class="whatsapp-float" onclick="window.open('https://wa.me/34692833640?text=Hola%20Antonio%2C%20quiero%20informaci%C3%B3n%20sobre%20un%20seguro.','_blank')" title="WhatsApp">
+    <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+      <g fill="none" fill-rule="evenodd">
+        <g fill="#25D366">
+          <path d="M23.993033,0 C10.762252,0 0,10.765287 0,23.999801 C0,29.248451 1.692661,34.116025 4.570026,38.066947 L1.579605,46.983798 L10.804449,44.035539 C14.598605,46.546975 19.126434,48 24.006967,48 C37.237748,48 48,37.234315 48,24.000199 C48,10.765685 37.237748,0.000398 24.006967,0.000398 L23.993033,0.000398 L23.993033,0 Z M17.29285,12.190836 C16.827488,11.07628 16.474784,11.034071 15.769774,11.005401 C15.529728,10.991464 15.262214,10.977527 14.96564,10.977527 C14.04845,10.977527 13.089462,11.245514 12.511043,11.838033 C11.806033,12.557577 10.056843,14.23638 10.056843,17.679202 C10.056843,21.122023 12.567571,24.451756 12.905944,24.917648 C13.258648,25.382743 17.800808,32.55031 24.853297,35.471492 C30.368379,37.757149 32.00491,37.545307 33.260074,37.27732 C35.093658,36.882308 37.393002,35.527239 37.971421,33.891043 C38.54984,32.25405 38.54984,30.857171 38.380255,30.560912 C38.211068,30.264652 37.745308,30.095816 37.040298,29.742615 C36.335288,29.389811 32.90737,27.696673 32.25849,27.470894 C31.623543,27.231179 31.017259,27.315995 30.537963,27.99333 C29.860819,28.938653 29.198006,29.89831 28.661785,30.476494 C28.238619,30.928051 27.547144,30.984595 26.969123,30.744481 C26.193254,30.420348 24.021298,29.657798 21.340985,27.273388 C19.267356,25.42535 17.856938,23.125756 17.448104,22.434484 C17.038871,21.729275 17.405907,21.319529 17.729948,20.938852 C18.082653,20.501232 18.421026,20.191036 18.77373,19.781688 C19.126434,19.372738 19.323884,19.160897 19.549599,18.681068 C19.789645,18.215575 19.62006,17.735746 19.450874,17.382942 C19.281687,17.030139 17.871269,13.587317 17.29285,12.190836 Z"/>
+        </g>
+      </g>
+    </svg>
+  </button>
+
+</body>
+</html>
