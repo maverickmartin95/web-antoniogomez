@@ -204,3 +204,6 @@ Se usa `LogoLeon.svg` en la barra de navegación. El SVG fue procesado para elim
 - [ ] Revisar y ajustar textos finales con Antonio
 - [ ] Optimizar para móvil (responsive completo)
 - [ ] Considerar despliegue (GitHub Pages, Netlify, etc.)
+- [ ] Vincular bien todas las páginas con sus respectivos enlaces
+- [ ] arreglar en pagina todos los seguros los botones superiores
+- [ ] implementar fotos
