@@ -510,3 +510,231 @@ h2 {
   nav { padding: 0 20px; }
   .nav-logo-text { font-size: 14px; }
 }
+/* ── SEGURO DETAIL PAGE ── */
+.seguro-hero {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 56px 24px 48px;
+}
+
+.seguro-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.8rem;
+  color: #888;
+  text-decoration: none;
+  margin-bottom: 36px;
+  transition: color 0.2s;
+  letter-spacing: 0.02em;
+}
+.seguro-back:hover { color: #333; }
+.seguro-back svg { transition: transform 0.2s; }
+.seguro-back:hover svg { transform: translateX(-3px); }
+
+.seguro-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.seguro-icon-wrap {
+  width: 72px;
+  height: 72px;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.seguro-tagline {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin: 0 0 6px;
+}
+
+.seguro-titulo {
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  color: #111;
+  margin: 0 0 10px;
+  line-height: 1.1;
+}
+
+.seguro-subtitulo {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 1rem;
+  color: #666;
+  font-weight: 300;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.seguro-divider {
+  border: none;
+  border-top: 1px solid rgba(0,0,0,0.08);
+  max-width: 780px;
+  margin: 0 auto 48px;
+}
+
+.seguro-content {
+  max-width: 780px;
+  margin: 0 auto 48px;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.seguro-descripcion {
+  grid-column: 1 / -1;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: #444;
+  font-weight: 300;
+}
+
+.seguro-block {
+  background: white;
+  border-radius: 20px;
+  padding: 28px;
+  border: 1px solid rgba(0,0,0,0.07);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+}
+
+.seguro-block h4 {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #aaa;
+  margin: 0 0 16px;
+  font-weight: 600;
+}
+
+.seguro-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.seguro-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.875rem;
+  color: #444;
+  font-weight: 300;
+  line-height: 1.4;
+}
+
+.seguro-list li .check {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+  font-size: 10px;
+  font-weight: 700;
+  color: white;
+}
+
+.seguro-para-ti {
+  max-width: 780px;
+  margin: 0 auto 48px;
+  padding: 0 24px;
+}
+
+.seguro-para-ti-inner {
+  border-radius: 20px;
+  padding: 28px 32px;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.seguro-para-ti-inner .emoji {
+  font-size: 1.4rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.seguro-para-ti-inner p {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.9rem;
+  line-height: 1.65;
+  font-weight: 300;
+  margin: 0;
+  color: #333;
+}
+
+.seguro-para-ti-inner strong {
+  display: block;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+.seguro-cta {
+  text-align: center;
+  padding: 60px 24px 80px;
+  background: white;
+  border-top: 1px solid rgba(0,0,0,0.07);
+}
+
+.seguro-cta h2 {
+  font-size: clamp(1.4rem, 3vw, 1.9rem);
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  margin: 0 0 12px;
+  color: #111;
+}
+
+.seguro-cta p {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.9rem;
+  color: #888;
+  font-weight: 300;
+  margin: 0 0 28px;
+}
+
+.seguro-not-found {
+  text-align: center;
+  padding: 120px 24px;
+}
+
+.seguro-not-found h2 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 12px;
+}
+
+.seguro-not-found p {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #888;
+  font-size: 0.9rem;
+  margin-bottom: 24px;
+}
+
+@media (max-width: 640px) {
+  .seguro-content { grid-template-columns: 1fr; }
+  .seguro-descripcion { grid-column: 1; }
+  .seguro-header { flex-direction: column; gap: 16px; }
+}
