@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Seguro · Antonio Gómez</title>
+  <link rel="stylesheet" href="../css/styles.css" />
+
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo">
+      <a href="../index.html">
+        <img src="../src/img/LogoLeon.png" alt="Generali" class="nav-logo-leon">
+      </a>
+    </div>
+    <div class="nav-actions">
+      <a href="../pages/sobreMi.html" class="btn-outline" style="text-decoration:none;">Sobre mí</a>
+      <button class="btn-outline">Área cliente</button>
+    </div>
+  </nav>
+
+  <!-- Contenido dinámico -->
+  <div id="seguro-container"></div>
+
+  <!-- BOTÓN FLOTANTE WHATSAPP -->
+  <button id="whatsapp-float" class="whatsapp-float" title="Contáctame por WhatsApp">
+    <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+      <g fill="#25D366">
+        <path d="M23.993033,0 C10.762252,0 0,10.765287 0,23.999801 C0,29.248451 1.692661,34.116025 4.570026,38.066947 L1.579605,46.983798 L10.804449,44.035539 C14.598605,46.546975 19.126434,48 24.006967,48 C37.237748,48 48,37.234315 48,24.000199 C48,10.765685 37.237748,0.000398 24.006967,0.000398 L23.993033,0.000398 L23.993033,0 Z M17.29285,12.190836 C16.827488,11.07628 16.474784,11.034071 15.769774,11.005401 C15.529728,10.991464 15.262214,10.977527 14.96564,10.977527 C14.04845,10.977527 13.089462,11.245514 12.511043,11.838033 C11.806033,12.557577 10.056843,14.23638 10.056843,17.679202 C10.056843,21.122023 12.567571,24.451756 12.905944,24.917648 C13.258648,25.382743 17.800808,32.55031 24.853297,35.471492 C30.368379,37.757149 32.00491,37.545307 33.260074,37.27732 C35.093658,36.882308 37.393002,35.527239 37.971421,33.891043 C38.54984,32.25405 38.54984,30.857171 38.380255,30.560912 C38.211068,30.264652 37.745308,30.095816 37.040298,29.742615 C36.335288,29.389811 32.90737,27.696673 32.25849,27.470894 C31.623543,27.231179 31.017259,27.315995 30.537963,27.99333 C29.860819,28.938653 29.198006,29.89831 28.661785,30.476494 C28.238619,30.928051 27.547144,30.984595 26.969123,30.744481 C26.193254,30.420348 24.021298,29.657798 21.340985,27.273388 C19.267356,25.42535 17.856938,23.125756 17.448104,22.434484 C17.038871,21.729275 17.405907,21.319529 17.729948,20.938852 C18.082653,20.501232 18.421026,20.191036 18.77373,19.781688 C19.126434,19.372738 19.323884,19.160897 19.549599,18.681068 C19.789645,18.215575 19.62006,17.735746 19.450874,17.382942 C19.281687,17.030139 17.871269,13.587317 17.29285,12.190836 Z"/>
+      </g>
+    </svg>
+  </button>
+
+  <!-- DATA -->
+  <script src="../js/script.js"></script>
+
+  <script>
+    // ── Leer el parámetro ?id= de la URL ──
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get('id');
+    const seguro = seguros[id];
+    const container = document.getElementById('seguro-container');
+
+    if (!seguro) {
+      // Seguro no encontrado
+      container.innerHTML = `
+        <div class="seguro-not-found">
+          <h2>Seguro no encontrado</h2>
+          <p>No hemos podido encontrar la información de este seguro.</p>
+          <a href="segurosYprotecciones.html" class="btn-red-large" style="text-decoration:none;display:inline-block;">
+            Ver todos los seguros
+          </a>
+        </div>
+      `;
+    } else {
+      // Actualizar el título de la pestaña
+      document.title = `${seguro.titulo} · Antonio Gómez`;
+
+      // Generar los items de coberturas
+      const coberturasHTML = seguro.coberturas.map(c => `
+        <li>
+          <span class="check" style="background:${seguro.color}">&checkmark;</span>
+          ${c}
+        </li>
+      `).join('');
+
+      // Generar los items de ventajas
+      const ventajasHTML = seguro.ventajas.map(v => `
+        <li>
+          <span class="check" style="background:#333">&checkmark;</span>
+          ${v}
+        </li>
+      `).join('');
+
+      container.innerHTML = `
+
+        <!-- HERO -->
+        <div class="seguro-hero">
+          <a href="segurosYprotecciones.html" class="seguro-back">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+              <path d="M11 7H3M7 3L3 7l4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Todos los seguros
+          </a>
+
+          <div class="seguro-header">
+            <div class="seguro-icon-wrap" style="background:${seguro.colorBg}">
+              ${seguro.icono}
+            </div>
+            <div>
+              <p class="seguro-tagline" style="color:${seguro.color}">${seguro.tagline}</p>
+              <h1 class="seguro-titulo">${seguro.titulo}</h1>
+              <p class="seguro-subtitulo">${seguro.subtitulo}</p>
+            </div>
+          </div>
+        </div>
+
+        <hr class="seguro-divider">
+
+        <!-- CONTENIDO -->
+        <div class="seguro-content">
+          <p class="seguro-descripcion">${seguro.descripcion}</p>
+
+          <div class="seguro-block">
+            <h4>Qué cubre</h4>
+            <ul class="seguro-list">
+              ${coberturasHTML}
+            </ul>
+          </div>
+
+          <div class="seguro-block">
+            <h4>Por qué con Generali</h4>
+            <ul class="seguro-list">
+              ${ventajasHTML}
+            </ul>
+          </div>
+        </div>
+
+        <!-- PARA TI -->
+        <div class="seguro-para-ti">
+          <div class="seguro-para-ti-inner" style="background:${seguro.colorBg}; border:1px solid ${seguro.color}22">
+            <span class="emoji">💡</span>
+            <p>
+              <strong style="color:${seguro.color}">¿Es este seguro para ti?</strong>
+              ${seguro.paraTi}
+            </p>
+          </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="seguro-cta">
+          <h2>¿Te interesa el ${seguro.titulo.toLowerCase()}?</h2>
+          <p>Cuéntame tu situación y te preparo una propuesta personalizada, sin compromiso.</p>
+          <button class="btn-red-large" id="btn-whatsapp-cta">
+            Pedir información por WhatsApp →
+          </button>
+          <p class="footer-meta" style="margin-top:24px;">Antonio Gómez · Asesor Generali · Granada, España</p>
+        </div>
+      `;
+
+      // Botón WhatsApp del CTA con mensaje personalizado
+      document.getElementById('btn-whatsapp-cta').addEventListener('click', function() {
+        const mensaje = `Hola Antonio, me gustaría obtener más información sobre el ${seguro.titulo}`;
+        window.open(`https://wa.me/34692833640?text=${encodeURIComponent(mensaje)}`, '_blank');
+      });
+    }
+
+    // Botón flotante WhatsApp
+    document.getElementById('whatsapp-float').addEventListener('click', function() {
+      const mensaje = seguro
+        ? `Hola Antonio, tengo una pregunta sobre el ${seguro.titulo}`
+        : 'Hola Antonio, me gustaría más información sobre tus seguros';
+      window.open(`https://wa.me/34692833640?text=${encodeURIComponent(mensaje)}`, '_blank');
+    });
+  </script>
+
+</body>
+</html>
