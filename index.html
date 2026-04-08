@@ -135,6 +135,240 @@
       <div class="trust-item"><span class="trust-check">✓</span> Más de 5 años de experiencia</div>
     </div>
   </section>
+<!-- 
+  CALCULADORA DE SEGUROS — Antonio Gómez · Generali
+  Pega este bloque donde tengas <section class="calculadora"></section>
+  y añade el CSS de calculadora.css a tu styles.css
+-->
+
+<section class="calculadora">
+
+  <div class="calc-inner">
+
+    <!-- Cabecera -->
+    <div class="calc-header">
+      <p class="calc-label">Herramienta gratuita</p>
+      <h2 class="calc-titulo">Calcula el precio estimado<br>de tu seguro</h2>
+      <p class="calc-subtitulo">Responde unas preguntas rápidas y te damos una estimación orientativa. Sin compromiso.</p>
+    </div>
+
+    <!-- Formulario por pasos -->
+    <div class="calc-form">
+
+      <!-- PASO 1: Tipo de seguro -->
+      <div class="calc-step active" data-step="1">
+        <p class="calc-step-label">Paso 1 de 4</p>
+        <h3 class="calc-step-titulo">¿Qué seguro te interesa?</h3>
+        <div class="calc-opciones-grid">
+          <button class="calc-opcion" data-field="seguro" data-value="vida">
+            <span class="calc-opcion-icon">❤️</span>
+            <span class="calc-opcion-nombre">Vida</span>
+          </button>
+          <button class="calc-opcion" data-field="seguro" data-value="hogar">
+            <span class="calc-opcion-icon">🏠</span>
+            <span class="calc-opcion-nombre">Hogar</span>
+          </button>
+          <button class="calc-opcion" data-field="seguro" data-value="coche">
+            <span class="calc-opcion-icon">🚗</span>
+            <span class="calc-opcion-nombre">Coche</span>
+          </button>
+          <button class="calc-opcion" data-field="seguro" data-value="moto">
+            <span class="calc-opcion-icon">🏍️</span>
+            <span class="calc-opcion-nombre">Moto</span>
+          </button>
+          <button class="calc-opcion" data-field="seguro" data-value="salud">
+            <span class="calc-opcion-icon">🩺</span>
+            <span class="calc-opcion-nombre">Salud</span>
+          </button>
+          <button class="calc-opcion" data-field="seguro" data-value="decesos">
+            <span class="calc-opcion-icon">🕊️</span>
+            <span class="calc-opcion-nombre">Decesos</span>
+          </button>
+          <button class="calc-opcion" data-field="seguro" data-value="accidentes">
+            <span class="calc-opcion-icon">🛡️</span>
+            <span class="calc-opcion-nombre">Accidentes</span>
+          </button>
+          <button class="calc-opcion" data-field="seguro" data-value="empresas">
+            <span class="calc-opcion-icon">🏢</span>
+            <span class="calc-opcion-nombre">Empresas</span>
+          </button>
+        </div>
+        <div class="calc-nav">
+          <span></span>
+          <button class="calc-btn-siguiente" onclick="calcSiguiente(1)" disabled>Siguiente →</button>
+        </div>
+      </div>
+
+      <!-- PASO 2: Datos personales -->
+      <div class="calc-step" data-step="2">
+        <p class="calc-step-label">Paso 2 de 4</p>
+        <h3 class="calc-step-titulo">Cuéntame sobre ti</h3>
+
+        <div class="calc-campos">
+
+          <div class="calc-campo">
+            <label class="calc-campo-label">¿Cuántos años tienes?</label>
+            <div class="calc-slider-wrap">
+              <input type="range" id="calc-edad" class="calc-slider" min="18" max="80" value="35"
+                oninput="calcActualizarSlider('edad', this.value)">
+              <div class="calc-slider-valor"><span id="calc-edad-val">35</span> años</div>
+            </div>
+          </div>
+
+          <div class="calc-campo">
+            <label class="calc-campo-label">Personas en tu hogar</label>
+            <div class="calc-stepper">
+              <button class="calc-stepper-btn" onclick="calcStepper('personas', -1)">−</button>
+              <span class="calc-stepper-val" id="calc-personas-val">1</span>
+              <button class="calc-stepper-btn" onclick="calcStepper('personas', +1)">+</button>
+            </div>
+          </div>
+
+          <div class="calc-campo">
+            <label class="calc-campo-label">Comunidad autónoma <span class="calc-requerido">*</span></label>
+            <span class="calc-error-msg" id="error-comunidad"></span>
+            <select class="calc-select" id="calc-comunidad" onchange="calcDatos.comunidad = this.value; calcLimpiarError('calc-comunidad')">
+              <option value="">Selecciona...</option>
+              <option value="andalucia">Andalucía</option>
+              <option value="aragon">Aragón</option>
+              <option value="asturias">Asturias</option>
+              <option value="baleares">Baleares</option>
+              <option value="canarias">Canarias</option>
+              <option value="cantabria">Cantabria</option>
+              <option value="castilla-la-mancha">Castilla-La Mancha</option>
+              <option value="castilla-leon">Castilla y León</option>
+              <option value="cataluna">Cataluña</option>
+              <option value="extremadura">Extremadura</option>
+              <option value="galicia">Galicia</option>
+              <option value="madrid">Madrid</option>
+              <option value="murcia">Murcia</option>
+              <option value="navarra">Navarra</option>
+              <option value="pais-vasco">País Vasco</option>
+              <option value="la-rioja">La Rioja</option>
+              <option value="valencia">Comunidad Valenciana</option>
+            </select>
+          </div>
+
+          <div class="calc-campo">
+            <label class="calc-campo-label">Profesión o actividad <span class="calc-requerido">*</span></label>
+            <span class="calc-error-msg" id="error-calc-profesion"></span>
+            <select class="calc-select" id="calc-profesion" onchange="calcDatos.profesion = this.value; calcLimpiarError('calc-profesion')">
+              <option value="">Selecciona...</option>
+              <option value="empleado">Empleado por cuenta ajena</option>
+              <option value="autonomo">Autónomo / Freelance</option>
+              <option value="empresario">Empresario</option>
+              <option value="funcionario">Funcionario</option>
+              <option value="estudiante">Estudiante</option>
+              <option value="jubilado">Jubilado</option>
+              <option value="desempleado">En búsqueda de empleo</option>
+              <option value="otro">Otro</option>
+            </select>
+          </div>
+
+        </div>
+
+        <div class="calc-nav">
+          <button class="calc-btn-atras" onclick="calcAtras(2)">← Atrás</button>
+          <button class="calc-btn-siguiente" onclick="calcSiguiente(2)">Siguiente →</button>
+        </div>
+      </div>
+
+      <!-- PASO 3: Detalles del seguro -->
+      <div class="calc-step" data-step="3">
+        <p class="calc-step-label">Paso 3 de 4</p>
+        <h3 class="calc-step-titulo" id="calc-paso3-titulo">Detalles de tu seguro</h3>
+
+        <div class="calc-campos">
+
+          <!-- Valor inmueble (hogar) -->
+          <div class="calc-campo" id="campo-inmueble" style="display:none">
+            <label class="calc-campo-label">Valor aproximado del inmueble</label>
+            <div class="calc-slider-wrap">
+              <input type="range" id="calc-inmueble" class="calc-slider" min="50000" max="800000" step="10000" value="200000"
+                oninput="calcActualizarSlider('inmueble', this.value)">
+              <div class="calc-slider-valor"><span id="calc-inmueble-val">200.000</span> €</div>
+            </div>
+          </div>
+
+          <!-- Capital asegurado (vida) -->
+          <div class="calc-campo" id="campo-capital" style="display:none">
+            <label class="calc-campo-label">Capital que quieres asegurar</label>
+            <div class="calc-slider-wrap">
+              <input type="range" id="calc-capital" class="calc-slider" min="50000" max="500000" step="10000" value="150000"
+                oninput="calcActualizarSlider('capital', this.value)">
+              <div class="calc-slider-valor"><span id="calc-capital-val">150.000</span> €</div>
+            </div>
+          </div>
+
+          <!-- Tipo de cobertura -->
+          <div class="calc-campo">
+            <label class="calc-campo-label">Tipo de cobertura</label>
+            <div class="calc-coberturas">
+              <button class="calc-cobertura-btn" data-value="basica" onclick="calcSeleccionarCobertura('basica', this)">
+                <span class="calc-cobertura-nombre">Básica</span>
+                <span class="calc-cobertura-desc">Lo esencial, al mejor precio</span>
+              </button>
+              <button class="calc-cobertura-btn" data-value="completa" onclick="calcSeleccionarCobertura('completa', this)">
+                <span class="calc-cobertura-nombre">Completa</span>
+                <span class="calc-cobertura-desc">Equilibrio entre precio y cobertura</span>
+              </button>
+              <button class="calc-cobertura-btn" data-value="premium" onclick="calcSeleccionarCobertura('premium', this)">
+                <span class="calc-cobertura-nombre">Premium</span>
+                <span class="calc-cobertura-desc">Máxima protección sin límites</span>
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="calc-nav">
+          <button class="calc-btn-atras" onclick="calcAtras(3)">← Atrás</button>
+          <button class="calc-btn-siguiente" onclick="calcSiguiente(3)">Calcular →</button>
+        </div>
+      </div>
+
+      <!-- PASO 4: Resultado -->
+      <div class="calc-step" data-step="4">
+        <p class="calc-step-label">Tu estimación</p>
+        <h3 class="calc-step-titulo">Calcula tu seguro conmigo</h3>
+
+        <div class="calc-resultado">
+          <div class="calc-resultado-precio">
+            <h2 class="resultado">Tus Datos</h2>
+          </div>
+          <p class="calc-resultado-aviso">
+            Estimación orientativa basada en los datos introducidos. El precio real puedes obtenerlo mandándome un mensaje.
+          </p>
+
+          <div class="calc-resultado-desglose" id="calc-desglose"></div>
+
+          <div class="calc-resultado-acciones">
+            <button class="btn-red-large" id="calc-btn-wa">
+              Quiero una oferta real por WhatsApp →
+            </button>
+            <button class="calc-btn-repetir" onclick="calcReiniciar()">
+              Calcular otro seguro
+            </button>
+          </div>
+        </div>
+
+        <div class="calc-nav" style="justify-content:center; margin-top:0">
+          <button class="calc-btn-atras" onclick="calcAtras(4)">← Modificar datos</button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Barra de progreso -->
+    <div class="calc-progress">
+      <div class="calc-progress-bar" id="calc-progress-bar"></div>
+    </div>
+
+  </div>
+
+  <script src="js/calculadora.js"> </script>
+
+</section>
 
   <!-- FOOTER CTA -->
   <div class="footer-cta">
