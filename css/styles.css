@@ -53,17 +53,22 @@ nav {
 
 /* ── BUTTONS ── */
 .btn-outline {
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'DM Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 13px;
   padding: 7px 16px;
-  border: 2px solid rgba(0,0,0,1);
+  border: 1.5px solid rgba(255,255,255,0.5);
   border-radius: 20px;
   background: transparent;
   cursor: pointer;
-  color: #333;
-  transition: background 0.2s;
+  color: rgba(255,255,255,0.9);
+  transition: all 0.2s;
+  text-decoration: none;
 }
-.btn-outline:hover { background: rgba(0,0,0,0.05); }
+.btn-outline:hover {
+  background: rgba(255,255,255,0.12);
+  border-color: rgba(255,255,255,0.8);
+  color: white;
+}
 
 .btn-dark {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
