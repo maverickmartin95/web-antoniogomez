@@ -163,14 +163,14 @@ nav {
   font-weight: 500;
   padding: 14px 32px;
   border-radius: 30px;
-  background: #C21B17;
+  background: var(--red);
   color: white;
   border: none;
   cursor: pointer;
   letter-spacing: -0.01em;
   transition: background 0.2s;
 }
-.btn-red-large:hover { background: #a81512; }
+.btn-red-large:hover { background: var(--red-dark);}
 
 /* ── HERO ── */
 .hero {
