@@ -5,6 +5,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Antonio Gómez · Asesor Generali</title>
+  <meta name="description"
+    content="Antonio Gómez, asesor de seguros Generali. Seguro de vida, hogar, salud, decesos y empresas para toda España. Asesoramiento gratuito y personalizado. Respuesta en 24h." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="css/styles.css" />
@@ -158,113 +160,114 @@
 -->
 
   <section class="calculadora">
-  <div class="calc-inner">
+    <div class="calc-inner">
 
-    <!-- Cabecera -->
-    <div class="calc-header">
-      <p class="calc-label">Herramienta gratuita</p>
-      <h2 class="calc-titulo">Solicita información<br>sobre tu seguro</h2>
-      <p class="calc-subtitulo">Elige el seguro, rellena tus datos y Antonio te preparará una propuesta personalizada.</p>
-    </div>
-
-    <!-- Formulario por pasos -->
-    <div class="calc-form">
-
-      <!-- PASO 1: Tipo de seguro -->
-      <div class="calc-step active" data-step="1">
-        <p class="calc-step-label">Paso 1 de 3</p>
-        <h3 class="calc-step-titulo">¿Qué seguro te interesa?</h3>
-        <div class="calc-opciones-grid">
-          <button class="calc-opcion" data-field="seguro" data-value="vida">
-            <span class="calc-opcion-icon">❤️</span>
-            <span class="calc-opcion-nombre">Vida</span>
-          </button>
-          <button class="calc-opcion" data-field="seguro" data-value="hogar">
-            <span class="calc-opcion-icon">🏠</span>
-            <span class="calc-opcion-nombre">Hogar</span>
-          </button>
-          <button class="calc-opcion" data-field="seguro" data-value="coche">
-            <span class="calc-opcion-icon">🚗</span>
-            <span class="calc-opcion-nombre">Coche</span>
-          </button>
-          <button class="calc-opcion" data-field="seguro" data-value="moto">
-            <span class="calc-opcion-icon">🏍️</span>
-            <span class="calc-opcion-nombre">Moto</span>
-          </button>
-          <button class="calc-opcion" data-field="seguro" data-value="salud">
-            <span class="calc-opcion-icon">🩺</span>
-            <span class="calc-opcion-nombre">Salud</span>
-          </button>
-          <button class="calc-opcion" data-field="seguro" data-value="decesos">
-            <span class="calc-opcion-icon">🕊️</span>
-            <span class="calc-opcion-nombre">Decesos</span>
-          </button>
-          <button class="calc-opcion" data-field="seguro" data-value="accidentes">
-            <span class="calc-opcion-icon">🛡️</span>
-            <span class="calc-opcion-nombre">Accidentes</span>
-          </button>
-          <button class="calc-opcion" data-field="seguro" data-value="empresas">
-            <span class="calc-opcion-icon">🏢</span>
-            <span class="calc-opcion-nombre">Empresas</span>
-          </button>
-        </div>
-        <div class="calc-nav">
-          <span></span>
-          <button class="calc-btn-siguiente" onclick="calcSiguiente(1)" disabled>Siguiente →</button>
-        </div>
+      <!-- Cabecera -->
+      <div class="calc-header">
+        <p class="calc-label">Herramienta gratuita</p>
+        <h2 class="calc-titulo">Solicita información<br>sobre tu seguro</h2>
+        <p class="calc-subtitulo">Elige el seguro, rellena tus datos y Antonio te preparará una propuesta personalizada.
+        </p>
       </div>
 
-      <!-- PASO 2: Datos -->
-      <div class="calc-step" data-step="2">
-        <p class="calc-step-label">Paso 2 de 3</p>
-        <h3 class="calc-step-titulo" id="calc-paso2-titulo">Tus datos</h3>
-        <div class="calc-campos" id="calc-campos-dinamicos"></div>
-        <div class="calc-nav">
-          <button class="calc-btn-atras" onclick="calcAtras(2)">← Atrás</button>
-          <button class="calc-btn-siguiente" onclick="calcSiguiente(2)">Revisar →</button>
-        </div>
-      </div>
+      <!-- Formulario por pasos -->
+      <div class="calc-form">
 
-      <!-- PASO 3: Resumen y envío -->
-      <div class="calc-step" data-step="3">
-        <p class="calc-step-label">Paso 3 de 3</p>
-        <h3 class="calc-step-titulo">Revisa y envía</h3>
-
-        <div class="calc-resultado">
-          <div class="calc-resultado-precio">
-            <h2 class="resultado" id="calc-seguro-nombre"></h2>
+        <!-- PASO 1: Tipo de seguro -->
+        <div class="calc-step active" data-step="1">
+          <p class="calc-step-label">Paso 1 de 3</p>
+          <h3 class="calc-step-titulo">¿Qué seguro te interesa?</h3>
+          <div class="calc-opciones-grid">
+            <button class="calc-opcion" data-field="seguro" data-value="vida">
+              <span class="calc-opcion-icon">❤️</span>
+              <span class="calc-opcion-nombre">Vida</span>
+            </button>
+            <button class="calc-opcion" data-field="seguro" data-value="hogar">
+              <span class="calc-opcion-icon">🏠</span>
+              <span class="calc-opcion-nombre">Hogar</span>
+            </button>
+            <button class="calc-opcion" data-field="seguro" data-value="coche">
+              <span class="calc-opcion-icon">🚗</span>
+              <span class="calc-opcion-nombre">Coche</span>
+            </button>
+            <button class="calc-opcion" data-field="seguro" data-value="moto">
+              <span class="calc-opcion-icon">🏍️</span>
+              <span class="calc-opcion-nombre">Moto</span>
+            </button>
+            <button class="calc-opcion" data-field="seguro" data-value="salud">
+              <span class="calc-opcion-icon">🩺</span>
+              <span class="calc-opcion-nombre">Salud</span>
+            </button>
+            <button class="calc-opcion" data-field="seguro" data-value="decesos">
+              <span class="calc-opcion-icon">🕊️</span>
+              <span class="calc-opcion-nombre">Decesos</span>
+            </button>
+            <button class="calc-opcion" data-field="seguro" data-value="accidentes">
+              <span class="calc-opcion-icon">🛡️</span>
+              <span class="calc-opcion-nombre">Accidentes</span>
+            </button>
+            <button class="calc-opcion" data-field="seguro" data-value="empresas">
+              <span class="calc-opcion-icon">🏢</span>
+              <span class="calc-opcion-nombre">Empresas</span>
+            </button>
           </div>
-          <p class="calc-resultado-aviso">
-            Revisa tus datos antes de enviarlos a Antonio por WhatsApp.
-          </p>
-          <div class="calc-resultado-desglose" id="calc-desglose"></div>
-          <div class="calc-resultado-acciones">
-            <button class="btn-dark" id="calc-btn-wa" style="background:#25D366;">
-              Enviar datos a Antonio por WhatsApp →
-            </button>
-            <button class="calc-btn-repetir" onclick="calcReiniciar()">
-              Empezar de nuevo
-            </button>
+          <div class="calc-nav">
+            <span></span>
+            <button class="calc-btn-siguiente" onclick="calcSiguiente(1)" disabled>Siguiente →</button>
           </div>
         </div>
 
-        <div class="calc-nav" style="justify-content:center; margin-top:0">
-          <button class="calc-btn-atras" onclick="calcAtras(3)">← Modificar datos</button>
+        <!-- PASO 2: Datos -->
+        <div class="calc-step" data-step="2">
+          <p class="calc-step-label">Paso 2 de 3</p>
+          <h3 class="calc-step-titulo" id="calc-paso2-titulo">Tus datos</h3>
+          <div class="calc-campos" id="calc-campos-dinamicos"></div>
+          <div class="calc-nav">
+            <button class="calc-btn-atras" onclick="calcAtras(2)">← Atrás</button>
+            <button class="calc-btn-siguiente" onclick="calcSiguiente(2)">Revisar →</button>
+          </div>
         </div>
+
+        <!-- PASO 3: Resumen y envío -->
+        <div class="calc-step" data-step="3">
+          <p class="calc-step-label">Paso 3 de 3</p>
+          <h3 class="calc-step-titulo">Revisa y envía</h3>
+
+          <div class="calc-resultado">
+            <div class="calc-resultado-precio">
+              <h2 class="resultado" id="calc-seguro-nombre"></h2>
+            </div>
+            <p class="calc-resultado-aviso">
+              Revisa tus datos antes de enviarlos a Antonio por WhatsApp.
+            </p>
+            <div class="calc-resultado-desglose" id="calc-desglose"></div>
+            <div class="calc-resultado-acciones">
+              <button class="btn-dark" id="calc-btn-wa" style="background:#25D366;">
+                Enviar datos a Antonio por WhatsApp →
+              </button>
+              <button class="calc-btn-repetir" onclick="calcReiniciar()">
+                Empezar de nuevo
+              </button>
+            </div>
+          </div>
+
+          <div class="calc-nav" style="justify-content:center; margin-top:0">
+            <button class="calc-btn-atras" onclick="calcAtras(3)">← Modificar datos</button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Barra de progreso -->
+      <div class="calc-progress">
+        <div class="calc-progress-bar" id="calc-progress-bar"></div>
       </div>
 
     </div>
 
-    <!-- Barra de progreso -->
-    <div class="calc-progress">
-      <div class="calc-progress-bar" id="calc-progress-bar"></div>
-    </div>
+    <script src="js/calculadora.js"></script>
 
-  </div>
-
-  <script src="js/calculadora.js"></script>
-
-</section>
+  </section>
 
   <!-- FOOTER CTA -->
   <div class="footer-cta">
