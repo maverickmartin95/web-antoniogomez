@@ -71,17 +71,21 @@ nav {
 }
 
 .btn-dark {
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'DM Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 14px;
   padding: 13px 28px;
   border-radius: 30px;
-  background: #333;
+  background: #25D366;
   color: white;
   border: none;
   cursor: pointer;
   transition: background 0.2s;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
 }
-.btn-dark:hover { background: #333; }
+.btn-dark:hover { background: #1ebe57; }
 
 .btn-ghost {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
