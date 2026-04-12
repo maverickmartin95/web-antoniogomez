@@ -1,12 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap');
+
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --red:        #C21B17;
+  --red-dark:   #8F1411;
+  --cream:      #F8F7F4;
+  --cream-dark: #F0EEE9;
+  --text:       #1A1A1A;
+  --muted:      #6B7280;
+  --border:     rgba(0,0,0,0.08);
+}
 
 body {
   min-height: 100vh;
-  background: #f8f7f4;
-  font-family: 'Georgia', 'Times New Roman', serif;
-  color: #1a1a1a;
+  background: var(--cream);
+  font-family: 'DM Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
 }
-
 /* ── NAV ── */
 nav {
   display: flex;
